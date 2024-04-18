@@ -161,8 +161,8 @@ or..
 
     // Check the link from local to remote..
 ..~/kt$ git remote
-        // above cmd returns list of currently linked remote repos!
 ..~/kt$ git remote -v
+        // above cmds return list of currently linked remote repos!
 
 
     // Upload "push" code to remote..
@@ -219,15 +219,17 @@ or..
 ..~/kt$ git fetch 
 
 
-### Update & sync local branch to remote origin branch..
+### Update & sync local branch to sync to remote origin branch..
     // Sync updated remote commit to local repo.. 
 ..~/kt$ git pull origin master
 
 
-
+// To ssh into remote.., first remove existing https link.. 
 
 # !!!
 // Remove link to remote repo.. 
 ..~/kt$ git remote remove origin
 # !!!
+
+
 
