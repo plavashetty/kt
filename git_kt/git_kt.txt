@@ -1,0 +1,135 @@
+
+    // GIT Version Control System (VCS) .. local repo!!!
+   
+        // Install git..
+$ sudo apt install git
+
+        // create a folder .. 'kt' & move there..
+
+..~/kt$
+
+
+
+        // Initialize above folder as a 'git' VCS (local) repository & Configure ..
+..~/kt$ git init
+
+..~/kt$ git config --global user.name "K S"
+..~/kt$ git config --global user.email "ks@ttt.com"
+
+
+
+
+        // status - shows changes made since last version..
+..~/kt$ git status
+
+
+
+        // log - check state of version history..
+    // To show current commit & all commits behind the current commit ('All commits in version history'!)..
+..~/kt$ git log
+    // To also show commits in front of current commit..
+..~/kt$ git log --all
+..~/kt$ git log --all --graph
+
+        // logging ..
+// ! `HEAD` spotifier indicates currently-viewing(highlighted) version commit !! (Names may change for diff version of git!)
+// !!! `master` 'branch-name' indicates the latest(furthest) commit to a branch !!! (Names may change for diff version of git!)
+
+
+
+        // Create a folder 'git_kt' in the folder 'kt' !
+    // Create file "git_kt.txt" in the folder 'git_kt' !
+
+
+        // add - Stage any change recorded/reflecting/shown (adding/removing/updating of files&folders) in Working area of VCS !!
+// Add all entries in current("period" parameter is passed) folder shown($git $status) in Working area, to Staging area of VCS for entry into next version-commit..
+..~/kt$ git add .
+// Add entire content of folder 'git_kt' (& its sub-folders) shown in Working area, to Staging area (Grooming for entry into next version-commit of VCS)..
+..~/kt$ git add git_kt
+// Add a file 'git_kt.txt' shown in Working area, to Staging area (Grooming for entry into next version-commit)..
+..~/kt$ git add git_kt.txt
+
+
+
+        // Commit staged content to next version..
+..~/kt$ git commit -m "V1 .. irrelevant msg expression"
+
+    // Handle (fix) messups of previous commit.. like missing code or files, msg spelling corrections, etc.. of above commit..
+    ..~/kt$ git commit -m "V1 .. relevant msg expression" --amend
+
+
+
+        // reset - Move entries from Staging area back to Working area !!
+// Remove every entry shown($git $status) in Staging area & move back to Working area..
+..~/kt$ git reset .
+// Remove entire content of folder 'git_kt' shown in Staging area & move back to Working area..
+..~/kt$ git reset git_kt
+// Remove a file 'git_kt.txt' shown in Staging area & move back to Working area..
+..~/kt$ git reset git_kt.txt
+
+
+
+        // -- - Delete entries from working area & out of VCS !!
+// Delete every entry shown($git $status) in Working area..
+..~/kt$ git checkout -- .
+// Delete entire content of folder 'git_kt' shown in Working area..
+..~/kt$ git checkout -- git_kt
+// Delete a file 'git_kt.txt' shown in Working area..
+..~/kt$ git checkout -- git_kt.txt
+
+
+
+        // Stage & Commit ongoing work(usr-stories/tickets) to next version..
+..~/kt$ git add .
+..~/kt$ git commit -m "V2 .. respective relevant msg expression &| usr-story/ticket"
+
+
+        // Stage & Commit more ongoing work to next version..
+..~/kt$ git add .
+..~/kt$ git commit -m "V3 .."
+
+
+
+        // View (Check out / See) previous version commits..
+// Use commit_hash id reflecting($git $log) of the previous version commit..
+..~/kt$ git checkout <commit_hash>
+or..
+// Use branch name of the previous version commit..
+..~/kt$ git checkout <branch_name>
+
+// `master` spotifier entry will stay shown beside latest commit of a branch!
+// `HEAD` spotifier will now reflect beside the version commit we are now currently viewing!
+
+
+
+        // Move back to viewing master version commit (!"HEAD gets placed back beside `master` version commit"!!)..
+..~/kt$ git checkout master
+
+
+        // Update master version commit to a previous version commit (which version commit to restore from)..
+    // !!! Run $git $checkout $master & set view bk to `master` "before executing below cmds"!! .. else you will be *branching away!!!
+// Update every entry..
+..~/kt$ git checkout <prev_Ver_commit_Hash> .
+// Update entire content of folder 'git_kt'..
+..~/kt$ git checkout <prev_Ver_commit_Hash> git_kt
+// Update a file 'git_kt.txt'..
+..~/kt$ git checkout <prev_Ver_commit_Hash> git_kt.txt
+
+    // Above cmd/s automatically stage !!
+
+        // Commit restored('in-part or whole') version, staged under current `master`, as a brand-new - latest `master` version commit..
+        ..~/kt$ git commit -m "V1 .. restoration msg expression"
+
+
+
+        // Ignoring critical files or unnecessary folders..
+// 1. Create a file .. '.gitignore' in folder "kt", and enter file or folder names -> 1 entry per line!!
+// 2. Do track the .gitignore file, to maintain an up-to-date ignored-files-list..  
+..~/kt$ git add .
+..~/kt$ git commit -m "Add git ignore"
+
+
+        // Completely remove git from the project..
+..~/kt$ sudo rm -rf .git
+
+
