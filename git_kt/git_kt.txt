@@ -1,7 +1,7 @@
 
     // GIT Version Control System (VCS) .. local repo!!!
    
-        // Install git..
+#        // Install git..
 $ sudo apt install git
 
         // create a folder .. 'kt' & move there..
@@ -9,18 +9,18 @@ $ sudo apt install git
 ..~/kt$
         ..
         
-        // Initialize above folder as a 'git' VCS (local) repository & Configure ..
+#        // Initialize above folder as a 'git' VCS (local) repository & Configure ..
 ..~/kt$ git init
 
 ..~/kt$ git config --global user.name "K S"
 ..~/kt$ git config --global user.email "ks@ttt.com"
 
 
-        // status - shows changes made since last version..
+#        // status - shows changes made since last version..
 ..~/kt$ git status
 
 
-        // log - check state of version history..
+#        // log - check state of version history..
     // To show current commit & all commits behind the current commit ('All commits in version history'!)..
 ..~/kt$ git log
     // To also show commits in front of current commit..
@@ -37,7 +37,7 @@ $ sudo apt install git
     // Create file "git_kt.txt" in the folder 'git_kt' !
 
 
-        // add - Stage any change recorded/reflecting/shown (adding/removing/updating of files&folders) in Working area of VCS !!
+#        // add - Stage any change recorded/reflecting/shown (adding/removing/updating of files&folders) in Working area of VCS !!
 // Add all entries in current("period" parameter is passed) folder shown($git $status) in Working area, to Staging area of VCS for entry into next version-commit..
 ..~/kt$ git add .
 // Add entire content of folder 'git_kt' (& its sub-folders) shown in Working area, to Staging area (Grooming for entry into next version-commit of VCS)..
@@ -47,7 +47,7 @@ $ sudo apt install git
 
 
 
-        // Commit staged content to next version..
+#        // Commit staged content to next version..
 ..~/kt$ git commit -m "V1 .. irrelevant msg expression"
 
     // Handle (fix) messups of previous commit.. like missing code or files, msg spelling corrections, etc.. of above commit..
@@ -55,7 +55,7 @@ $ sudo apt install git
 
 
 
-        // reset - Move entries from Staging area back to Working area !!
+#        // reset - Move entries from Staging area back to Working area !!
 // Remove every entry shown($git $status) in Staging area & move back to Working area..
 ..~/kt$ git reset .
 // Remove entire content of folder 'git_kt' shown in Staging area & move back to Working area..
@@ -65,7 +65,7 @@ $ sudo apt install git
 
 
 
-        // -- - Delete entries from working area & out of VCS !!
+#        // -- - Delete entries from working area & out of VCS !!
 // Delete every entry shown($git $status) in Working area..
 ..~/kt$ git checkout -- .
 // Delete entire content of folder 'git_kt' shown in Working area..
@@ -75,18 +75,18 @@ $ sudo apt install git
 
 
 
-        // Stage & Commit ongoing work(usr-stories/tickets) to next version..
+##        // Stage & Commit ongoing work(usr-stories/tickets) to next version..
 ..~/kt$ git add .
 ..~/kt$ git commit -m "V2 .. respective relevant msg expression &| usr-story/ticket"
 
 
-        // Stage & Commit more ongoing work to next version..
+##        // Stage & Commit more ongoing work to next version..
 ..~/kt$ git add .
 ..~/kt$ git commit -m "V3 .."
 
 
 
-        // View (Check out / See) previous version commits..
+#        // View (Check out / See) previous version commits..
 // Use commit_hash id reflecting($git $log) of the previous version commit..
 ..~/kt$ git checkout <commit_hash>
 or..
@@ -97,12 +97,12 @@ or..
 // `HEAD` spotifier will now reflect beside the version commit we are now currently viewing!
 
 
-
+###
         // Move back to viewing master version commit (!"HEAD gets placed back beside `master` version commit"!!)..
 ..~/kt$ git checkout master
+###
 
-
-        // Update master version commit to a previous version commit (which version commit to restore from)..
+   #     // Update master version commit to a previous version commit (which version commit to restore from)..
     // !!! Run $git $checkout $master & set view bk to `master` "before executing below cmds"!! .. else you will be *branching away!!!
 // Update every entry..
 ..~/kt$ git checkout <prev_Ver_commit_Hash> .
@@ -111,13 +111,13 @@ or..
 // Update a file 'git_kt.txt'..
 ..~/kt$ git checkout <prev_Ver_commit_Hash> git_kt.txt
 
-    // Above cmd/s automatically stage !!
+#    // Above cmd/s automatically stage !!
 
         // Commit restored('in-part or whole') version, staged under current `master`, as a brand-new - latest `master` version commit..
         ..~/kt$ git commit -m "V1 .. restoration msg expression"
 
 
-
+###
         // Ignoring critical files or unnecessary folders..
 // 1. Create a file .. '.gitignore' in folder "kt", and enter file or folder names -> 1 entry per line!!
 // 2. Do track the .gitignore file, to maintain an up-to-date ignored-files-list..  
@@ -125,27 +125,32 @@ or..
 ..~/kt$ git commit -m "Add git ignore"
 
 
-!!!
+# !!!
         // Completely remove git from the project..
 ..~/kt$ sudo rm -rf .git
-!!!
+# !!!
 
-                // *** ! ~ ! *** //
+
+
+""!''
+    ###    ---     // *** ! ~ ! *** //    ---     ###
+''!""
+
 
 
     // GIT Version Control System (VCS) in GITHUB.. remote repo!!!
 
 
-// Goto github.com and create an account!
+#// Goto github.com and create an account!
     // Create a public (remote) repository with the same name 'kt', so as to match local repo folder!! (You can, however, name it anything you want)!!!
 
 
 
-// Configure git with github user name!!! ..
+#// Configure git with github user name!!! ..
 ..~/kt$ git config --global credential.username "plavashetty"
 
 
-
+#                        // git push ..
 // Upload local repo into remote repo (push 1 branch of commits at a time)..
 
 
@@ -164,6 +169,9 @@ or..
         // (which remote repo name to push code to - 'origin')
             // (which local repo branch name code to push code from - "master")
 ..~/kt$ git push origin master
+#        // ONLY COMMITS ARE PUSHED - NOT WORKING OR STAGING CHANGES!!!
+
+
 
 !!! "Passwd auth support is removed .. hence use a token.."!!!
     // Goto github - account settings - dev settings - personal access tokens - generate token ..
@@ -172,6 +180,7 @@ or..
             'Check repo scope checkbox'
     // Copy the generated token into a git ignore secrets txt file ..
 // Paste this token when prompted for passwd in $git $push cmd..
+
 
 
 // GITHUB repo now reflects its master branch to local repo master branch!!!
@@ -183,24 +192,42 @@ or..
         // GITHUB now has a copy of the local `master` branch!
 
 
+###
+    // "FORCE push commit to remote" to push '--amend' commits to remote .. 
+# USE TO HANDLE MESSUPS ..
+..~/kt$ git push origin master -f
+###
 
-    // Pull "fetch" code from remote..
+// git push shortcut..
+..~/kt$ git push origin master --set-upstream
+    // now you can use shortcut ..
+..~/kt$ git push
+        // & git will auto memorize origin & master for us!
+
+
+###
+    // Download "clone" copy of git repo from github..
+        // Downloads to 'kt' folder in PWD..
+..~/kt$ git clone https://github.com/plavashetty/kt.git
+        // Optionally provide a folder to download repo to..
+..~/kt$ git clone https://github.com/plavashetty/kt.git ~/Downloads/clonedRepo
+
+
+
+### REMOTE TRACKING BRANCHES DO NOT AUTO UPDATE ..
+    // Update all remote tracking branches "fetch" to current state (origin master) in github..
 ..~/kt$ git fetch 
 
 
+### Update & sync local branch to remote origin branch..
+    // Sync updated remote commit to local repo.. 
+..~/kt$ git pull origin master
 
 
 
 
-
-
-
-
-
-
-
-!!!
+# !!!
 // Remove link to remote repo.. 
 ..~/kt$ git remote remove origin
-!!!
+# !!!
 
