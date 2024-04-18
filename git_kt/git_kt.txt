@@ -133,3 +133,71 @@ or..
 ..~/kt$ sudo rm -rf .git
 
 
+
+
+
+    // GIT Version Control System (VCS) in GITHUB.. remote repo!!!
+
+
+// Goto github.com and create an account!
+    // Create a public (remote) repository with the same name 'kt', so as to match local repo folder!! (You can, however, name it anything you want)!!!
+
+
+
+// Configure git with github user name!!! ..
+..~/kt$ git config --global credential.username "plavashetty"
+
+
+
+// Upload local repo into remote repo (push 1 branch of commits at a time)..
+
+
+    // Add link betw remote & local.. 
+        // (!'origin' nickname given to remote!)
+            // (!url of remote repo!)
+..~/kt$ git remote add origin https://github.com/plavashetty/kt.git
+
+    // Check the link from local to remote..
+..~/kt$ git remote
+        // above cmd returns list of currently linked remote repos!
+..~/kt$ git remote -v
+
+
+    // Upload "push" code to remote..
+        // (which remote repo name to push code to - 'origin')
+            // (which local repo branch name code to push code from - "master")
+..~/kt$ git push origin master
+
+!!! "Passwd auth support is removed .. hence use a token.."!!!
+    // Goto github - account settings - dev settings - personal access tokens - generate token ..
+        // 'Note: access-token'
+            'Expiry: 7 days'
+            'Check repo scope checkbox'
+    // Copy the generated token into a git ignore secrets txt file ..
+// Paste this token when prompted for passwd in $git $push cmd..
+
+
+// GITHUB repo now reflects its master branch to local repo master branch!!!
+
+
+
+    // Pull "fetch" code from remote..
+..~/kt$ git fetch 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Remove link to remote repo.. 
+..~/kt$ git remote remove origin
+
