@@ -7,9 +7,8 @@ $ sudo apt install git
         // create a folder .. 'kt' & move there..
 
 ..~/kt$
-
-
-
+        ..
+        
         // Initialize above folder as a 'git' VCS (local) repository & Configure ..
 ..~/kt$ git init
 
@@ -17,11 +16,8 @@ $ sudo apt install git
 ..~/kt$ git config --global user.email "ks@ttt.com"
 
 
-
-
         // status - shows changes made since last version..
 ..~/kt$ git status
-
 
 
         // log - check state of version history..
@@ -129,11 +125,12 @@ or..
 ..~/kt$ git commit -m "Add git ignore"
 
 
+!!!
         // Completely remove git from the project..
 ..~/kt$ sudo rm -rf .git
+!!!
 
-
-
+                // *** ! ~ ! *** //
 
 
     // GIT Version Control System (VCS) in GITHUB.. remote repo!!!
@@ -180,6 +177,12 @@ or..
 // GITHUB repo now reflects its master branch to local repo master branch!!!
 
 
+    // We can now see an 'origin/master' "remote tacking branch" ..
+        // along with the 'HEAD -> master' local branch being logged in git..
+..~/kt$ git log --all --graph
+        // GITHUB now has a copy of the local `master` branch!
+
+
 
     // Pull "fetch" code from remote..
 ..~/kt$ git fetch 
@@ -196,8 +199,8 @@ or..
 
 
 
-
-
+!!!
 // Remove link to remote repo.. 
 ..~/kt$ git remote remove origin
+!!!
 
