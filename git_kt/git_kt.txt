@@ -181,10 +181,43 @@ or..
     // Copy the generated token into a git ignore secrets txt file ..
 // Paste this token when prompted for passwd in $git $push cmd..
 
+###                 ###                 ###
+
+// "To ssh into remote".., first remove existing https link to remote branch `origin`.. & add ssh link instead.. 
+
+# !!!
+// Remove link to remote repo.. 
+..~/kt$ git remote remove origin
+# !!!
+
+// Add the ssh link betw remote and local..
+..~$ git remote add origin git@github.com:plavashetty/kt.git
+    // and check updated link entry..
+        ..~$ git remote -v
+
+#
+// Generate ssh keys locally..
+        ..~$ ssh-keygen -t ed25519 -C "plavashetty@gmail.com"
+// Start ssh-agent in bkgnd..
+        ..~$ eval "$(ssh-agent -s)"
+// Add ssh pvt key to ssh-agent..
+        ..~$ ssh-add ~/.ssh/id_ed25519
+
+// Copy ssh pub key from..
+        ..~$ cat ~/.ssh/id_ed25519.pub
+#
+// Add the SSH public key to your account on GitHub ..
+    // Goto github - settings - SSH & GPG keys - new ssh key - paste the copied ssh pub key here ..
+    // Test ssh connection to GitHub..
+        ..~$ ssh -T git@github.com
+
+###
+// Add changes, Commit & $git $push from local to remote..
+        ..~/kt$ git push origin master
 
 
-// GITHUB repo now reflects its master branch to local repo master branch!!!
-
+###
+// Once $git $push completes, GITHUB repo master branch now reflects the local repo master branch!!!
 
     // We can now see an 'origin/master' "remote tacking branch" ..
         // along with the 'HEAD -> master' local branch being logged in git..
@@ -194,7 +227,7 @@ or..
 
 ###
     // "FORCE push commit to remote" to push '--amend' commits to remote .. 
-# USE TO HANDLE MESSUPS ..
+# Use it to HANDLE MESSUPS .. (as github does bnot otherwise allow this type of commit)..
 ..~/kt$ git push origin master -f
 ###
 
@@ -205,13 +238,13 @@ or..
         // & git will auto memorize origin & master for us!
 
 
-###
-    // Download "clone" copy of git repo from github..
+###                 ###                 ###
+    // Download "clone" copy of git repo from github.. "1 time job"
         // Downloads to 'kt' folder in PWD..
 ..~/kt$ git clone https://github.com/plavashetty/kt.git
         // Optionally provide a folder to download repo to..
 ..~/kt$ git clone https://github.com/plavashetty/kt.git ~/Downloads/clonedRepo
-
+###                 ###                 ###
 
 
 ### REMOTE TRACKING BRANCHES DO NOT AUTO UPDATE ..
@@ -222,14 +255,5 @@ or..
 ### Update & sync local branch to sync to remote origin branch..
     // Sync updated remote commit to local repo.. 
 ..~/kt$ git pull origin master
-
-
-// To ssh into remote.., first remove existing https link.. 
-
-# !!!
-// Remove link to remote repo.. 
-..~/kt$ git remote remove origin
-# !!!
-
 
 
