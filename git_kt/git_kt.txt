@@ -257,3 +257,27 @@ or..
 ..~/kt$ git pull origin master
 
 
+
+
+""!''
+    ###    ---     // *** ! ~ ! *** //    ---     ###
+''!""
+
+
+
+    // 'Branching'    'Merging'     &     "Feature Branch Workflow"     !!!
+
+
+// Create a new branch from master branch.. (Name the branch to describe what feature you are working on..)
+$ git branch branchNameFeature1
+        //  A copy is made    (HEAD -> master, branchNameFeature1)
+    // Use the copy to make new features changes/commits ..
+    
+###
+// Switch branch to work on ..
+$ git checkout branchNameFeature1
+    // (HEAD -> branchNameFeature1, master) All commits mafe will be on the branch that the HEAD points to!!!
+
+
+
+
