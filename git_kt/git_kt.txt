@@ -12,8 +12,16 @@ $ sudo apt install git
 #        // Initialize above folder as a 'git' VCS (local) repository & Configure ..
 ..~/kt$ git init
 
+        // Global user-specific Configuration for all repos of the User, & overrides System config.. typically stored in ~/.gitconfig
 ..~/kt$ git config --global user.name "K S"
-..~/kt$ git config --global user.email "ks@ttt.com"
+..~/kt$ git config --global user.email "ks@ttt.ad"
+
+##        // Local Per-project Configuration in a specific repository, & overrides the other two global configurations for just the repo!.. typically stored within repo, in .git/config
+    // git config --local user.name "P S"
+    // git config --local user.email "ps@ttt.ad"
+
+###       // System-wide global Configuration for all users on the machine.. typically stored in /etc/gitconfig 
+    // git config --system user.name "System Name"
 
 
 #        // status - shows changes made since last version..
