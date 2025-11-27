@@ -167,6 +167,11 @@ or..
             // (!url of remote repo!)
 ..~/kt$ git remote add origin https://github.com/plavashetty/kt.git
 
+// ! In 2025, github has moved to `main`.. so do as they suggest & rename current branch to `main` & push main..
+    git branch -M main
+    git remote add origin git@github.com:plavashetty/kt.git
+    git push -u origin main
+
     // Check the link from local to remote..
 ..~/kt$ git remote
 ..~/kt$ git remote -v
